@@ -1,0 +1,33 @@
+# ------------------------------------------------------------
+#
+#                   200 JS and 200 Horse XP
+#
+#  DO NOT change anything this script otherwise it won't work
+#
+# ------------------------------------------------------------
+#
+# ------ Script Info ------
+# Author: ondrejzv
+# Ver: 1.2
+# Format: RAWESCRIPT
+# Type: Executable
+# ID: IAYjp
+# Language: RaweUniversal (RW++)
+# -------------------------
+
+
+!include app\rawe.bin
+!include app\execute.bin
+!include app\btncontrol.bin
+!include app\u569.bin
+!include app\MAIN.bin
+
+ItemList = string {MAIN.bin\\itemlist}
+StatsList = string {MAIN.bin\\statlist}
+items = (ItemList / string ItemName, int ItemCount)
+stats = (StatsList / int JS, int PXP, int HXP)
+Player = {u569\\CrPlayer}
+var Script = s
+s = Player.AddStats(stats / 200, 0, 200)
+
+s.ExecuteOnButtonClick(CurrentSelectedButton(true))
